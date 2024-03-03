@@ -1,16 +1,19 @@
 # flutter_chatbot
 
-A new Flutter project.
+Chatbot with OpenAI integration.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Create a file called .env in the project root directory and add the content bellow. Replace "your api key" with your OpenAI API key.
 
-A few resources to get you started if this is your first Flutter project:
+```
+OPEN_AI_API_KEY="your api key"
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2. Open a terminal in the project root directory and run the command:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+dart run build_runner build
+```
+
+3. Start the project and enjoy :)
