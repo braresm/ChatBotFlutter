@@ -16,7 +16,7 @@ class OpenAiApi {
     };
 
     final response = await http.post(
-      Uri.parse('https://api.openai.com/v1/completions'),
+      Uri.parse('https://api.openai.com/v1/chat/completions'),
       headers: {
         'Authorization': 'Bearer $apiKey',
         'Content-Type': 'application/json',
