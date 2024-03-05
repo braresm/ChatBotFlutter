@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:text_to_speech/text_to_speech.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 class ChatMessage extends StatelessWidget {
   final bool isMyMessage;
   final String text;
-  final _textToSpeech = TextToSpeech();
+  final FlutterTts flutterTts = FlutterTts();
 
   ChatMessage({
     super.key,
@@ -35,6 +35,6 @@ class ChatMessage extends StatelessWidget {
   }
 
   Future<void> _speakMessage(String message) async {
-    await _textToSpeech.speak(message);
+    flutterTts.speak(message);
   }
 }
