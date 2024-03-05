@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chatbot/blocs/chat_bloc.dart';
 import 'package:flutter_chatbot/components/chat_message.dart';
 import 'package:flutter_chatbot/components/record_button.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -12,6 +13,24 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  Future<void> requestMicPermission() async {
+    var status = await Permission.microphone.request();
+    if (status.isGranted) {
+      // Permission granted
+    } else if (status.isDenied) {
+      // Permission denied
+    } else if (status.isPermanentlyDenied) {
+      // Permission permanently denied, open app settings
+      openAppSettings();
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    requestMicPermission();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ChatBloc, List<ChatMessage>>(
